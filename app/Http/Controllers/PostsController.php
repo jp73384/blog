@@ -138,7 +138,7 @@ class PostsController extends Controller
         
         $oldImage = public_path()."/storage/images/posts_images/".$post->foto;
 
-        
+        //agregando segundo commit
 
         if (file_exists($oldImage)) {
             unlink($oldImage);
