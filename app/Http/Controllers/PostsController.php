@@ -22,7 +22,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::get();
 
         return view('admin.posts.index', ['posts'=>$posts]);
     }

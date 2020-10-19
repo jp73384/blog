@@ -77,12 +77,14 @@
             <div class="modal-body">¿Esta seguro que desea eliminar?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                <form action="/post/{{$post['id']}}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <input type="hidden" id="post_id" name="post_id" value="">
-                    <a class="btn btn-primary" onclick="$(this).closest('form').submit();">Borrar</a>
-                </form>
+                @if(isset($post['id']))
+                    <form action="/post/{{$post['id']}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <input type="hidden" id="post_id" name="post_id" value="">
+                        <a class="btn btn-primary" onclick="$(this).closest('form').submit();">Borrar</a>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
