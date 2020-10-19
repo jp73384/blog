@@ -41,10 +41,7 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    @isset($posts)
-                        
-                    
-                        @foreach ($posts as $post)
+                    @foreach ($posts as $post)
                         <tr>
                             <td>{{$post['id']}}</td>
                             <td>{{$post->user['email']}}</td>
@@ -57,8 +54,7 @@
                                 <a href="#" data-toggle="modal" data-target="#deleteModal" data-postid="{{$post['id']}}"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                        @endforeach
-                    @endisset
+                    @endforeach
                 </tbody>
             </table>
         </div>
