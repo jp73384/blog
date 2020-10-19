@@ -16,6 +16,11 @@
     </div>
   </header>
 
+  @if (session('mensaje'))
+        <script>
+          alert("Gracias por comunicarse con nosotros, nos comunicamos con ustedes enseguida");
+        </script>
+  @endif
   <!-- Main Content -->
   <div class="container">
     <div class="row">

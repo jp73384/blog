@@ -46,6 +46,6 @@ class HomeController extends Controller
 
         $comment->save();
 
-        return redirect('home');
+        return back()->with('mensaje',' ');
     }
 }
