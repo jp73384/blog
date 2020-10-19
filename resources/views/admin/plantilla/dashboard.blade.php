@@ -65,7 +65,6 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{route('padrino')}}">Registrar Padrinos</a>
                                     <a class="nav-link" href="{{route('listadoPadrino')}}">Listado de los padrino</a>
                                 </nav>
                             </div>

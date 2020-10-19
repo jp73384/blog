@@ -2,7 +2,7 @@
 
 @section('content')
     <h2>Registrar padrinos</h2>
-    <form action="{{route('createPadrino')}}" method="post">
+    <form action="#" method="post">
         {{ csrf_field() }}  
         <div class="form-group">
             <label for="nombre">Nombre: </label>
