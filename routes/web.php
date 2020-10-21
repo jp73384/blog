@@ -29,6 +29,7 @@ Route::get('/contacto', 'ControladorPagina@contacto')->name('contactos');
 Route::post('/contacto', 'HomeController@store')->name('enviarComentarios');
 
 Route::get('/admin', 'ControladorPagina@administrador')->name('admin');
+Route::get('/reportes', 'ControladorPagina@reporte')->name('reporte');
 
 //Route::get('/padrino', 'ControladorPagina@padrinos')->name('padrinos');
 

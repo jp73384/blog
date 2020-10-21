@@ -16,7 +16,7 @@
 
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Angeles Chapines</a>
+            <a class="navbar-brand" href="#">Angeles Chapines</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -51,36 +51,40 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Post</div>
+                            <div class="sb-sidenav-menu-heading">POST</div>
                             <a class="nav-link" href="{{route('postIndex')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa fa-envelope"></i></div>
                                 Ver todos los Post
                             </a>
-                            <div class="sb-sidenav-menu-heading"></div>
+                            <div class="sb-sidenav-menu-heading">Padrinos</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
                                 Padrinos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{route('padrino')}}">Registrar Padrinos</a>
-                                    <a class="nav-link" href="{{route('listadoPadrino')}}">Listado de los padrino</a>
+                                    <a class="nav-link" href="{{route('padrino')}}"><i class="fa fa-user-plus"></i>&nbsp;Registrar Padrinos</a>
+                                    <a class="nav-link" href="{{route('listadoPadrino')}}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado</a>
                                 </nav>
                             </div>
-
+                            <div class="sb-sidenav-menu-heading">Benefiados</div>
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#apadrinado" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa fa-address-card" aria-hidden="true"></i></div>
                                 Beneficiados
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="apadrinado" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{route('apdrinar')}}">Apadrinar</a>
-                                    <a class="nav-link" href="#">Listado apadrinados</a>
+                                    <a class="nav-link" href="{{route('apdrinar')}}"><i class="fa fa-user-plus"></i>&nbsp;Apadrinar</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado apadrinados</a>
                                 </nav>
                             </div>
-
+                            <div class="sb-sidenav-menu-heading">Reportes</div>
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
+                                Reportes
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

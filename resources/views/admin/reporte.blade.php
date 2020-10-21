@@ -1,5 +1,5 @@
 @extends('admin.plantilla.dashboard')
 
 @section('content')
-    <h2>Post</h2>
+    <h2>Reporte</h2>
 @endsection
