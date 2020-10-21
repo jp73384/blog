@@ -43,12 +43,34 @@
                                     <a href="{{route('editar', $padrino->id)}}">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <form action="{{route('eliminarPadrino', $padrino->id)}}" method="post" class="d-inline">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button class="btn btn-link" type="submit"> <i class="fa fa-trash"></i> </button>
-                                        </button>
-                                    </form>
+                                    <a href="#" data-toggle="modal" data-target="#Relacion{{$padrino->id}}" data-postid="{{$padrino->id}}">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+
+                                    <div class="modal fade" id="Relacion{{$padrino->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Titulo</h5>
+                                                    <button class="close" type="button" data-dismiss="modal" aria-label="close">
+                                                        <span aria-hidden="true">x</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">¿Esta seguro que desea eliminar al padrino {{$padrino->nombre}}?</div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                                    @if(isset($padrino->id))
+                                                        <form action="{{route('eliminarPadrino', $padrino->id)}}" method="post">
+                                                            @method('DELETE')
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-primary">Borrar</button>
+                                                        </form>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </td>
                             </tr>     
                         @endforeach
@@ -57,5 +79,5 @@
         </div>
     </div>
 </div>
-
 @endsection
+
