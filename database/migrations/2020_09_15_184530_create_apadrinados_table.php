@@ -14,7 +14,7 @@ class CreateApadrinadosTable extends Migration
     public function up()
     {
         Schema::create('apadrinados', function (Blueprint $table) {
-            $table->bigIncrements('idApadrinado');
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('feEdad');
             $table->decimal('edad');
@@ -22,9 +22,9 @@ class CreateApadrinadosTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->unsignedBigInteger('idAyuda');
-            $table->foreign('idAyuda')->references('idAyuda')->on('tipo_ayudas');
-            $table->unsignedBigInteger('idPadrinos');
-            $table->foreign('idPadrinos')->references('idPadrinos')->on('padrinos');
+            $table->foreign('idAyuda')->references('id')->on('tipo_ayudas');
+            $table->unsignedBigInteger('idPadrino');
+            $table->foreign('idPadrino')->references('id')->on('padrinos');
             $table->timestamps();
         });
     }

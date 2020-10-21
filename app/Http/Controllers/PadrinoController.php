@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Padrino;
 use Illuminate\Http\Request;
+use App;
+
 
 class PadrinoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
     public function __construct()
     {
@@ -23,27 +20,23 @@ class PadrinoController extends Controller
         return view('admin.padrino.padrinos');
     }
 
+    public function editar($id)
+    {
+        $editar = new Padrino;
+        $editar = Padrino::find($id);
+        return view('admin.padrino.editar', compact('editar'));
+    }
+
     public function verPadrino(){
         $listadoPadrino = Padrino::get();
         return view('admin.padrino.listarPadrino', ['listadoPadrino'=>$listadoPadrino]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -61,52 +54,43 @@ class PadrinoController extends Controller
         
         $post->save(); //10.08-Curso de Laravel 6.0 - Crear el CRUD para Post - Upload Image para Post
 
-        return redirect('listado');
+    
+        return redirect('listado')->with('mensaje', 'Registros satisfactorio!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $editar = new Padrino;
+        $editar = Padrino::find($id);
+        $editar->nombre = $request->nombre;
+        $editar->telefono = $request->telefono;
+        $editar->fecha = $request->fecha;
+
+        $editar->save();
+
+        return redirect('listado')->with('mensaje', 'Datos Actualizados!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
+        $delete = new Padrino;
+        $delete = Padrino::find($id);
+        $delete->delete();
+
+        return redirect('listado')->with('eliminar', 'Datos borrados!');
+
     }
 
     public function apadrinar(){

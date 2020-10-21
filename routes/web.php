@@ -44,7 +44,11 @@ Route::get('/listado', 'PadrinoController@verPadrino')->name('listadoPadrino');
 
 //Crud para insertar padrinos
 Route::get('/padrino', 'PadrinoController@index')->name('padrino');
-Route::post('/padrino', 'PadrinoController@store');
+Route::post('/padrino', 'PadrinoController@store')->name('InsertPadrino');
+
+Route::get('/editar/{id}', 'PadrinoController@editar')->name('editar');
+Route::put('/editar/{id}', 'PadrinoController@update')->name('editarPadrinos');
+Route::delete('eliminar/{id}', 'PadrinoController@destroy')->name('eliminarPadrino');
 
 //apadrinados
 Route::get('/apadrinar', 'PadrinoController@apadrinar')->name('apdrinar');

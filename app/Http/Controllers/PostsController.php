@@ -81,7 +81,7 @@ class PostsController extends Controller
         
         $post->save(); //10.08-Curso de Laravel 6.0 - Crear el CRUD para Post - Upload Image para Post
 
-        return redirect('post');
+        return redirect('post')->with('mensaje', 'Registros satisfactorio!');
 
     } 
 
@@ -109,6 +109,7 @@ class PostsController extends Controller
         return view('admin/posts/edit', ['post' => $post]);
     }
 
+   
     /**
      * Update the specified resource in storage.
      *

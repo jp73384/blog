@@ -18,7 +18,7 @@
 
   @if (session('mensaje'))
         <script>
-          alert("Gracias por comunicarse con nosotros, nos comunicamos con ustedes enseguida");
+          alert("Gracias por comunicarse con nosotros, su mensaje fue enviado con exito");
         </script>
   @endif
   <!-- Main Content -->

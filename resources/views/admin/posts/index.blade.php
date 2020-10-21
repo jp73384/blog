@@ -1,6 +1,8 @@
 @extends('admin.plantilla.dashboard')
 @section('content')
-
+@if (session('mensaje'))
+<div class="alert alert-success">{{session('mensaje')}}</div>
+@endif
 <div class="row py-lg-2">
     <div class="col-md-6">
         <h1>Listado de todos los post</h1>

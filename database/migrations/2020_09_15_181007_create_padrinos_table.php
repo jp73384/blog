@@ -14,7 +14,7 @@ class CreatePadrinosTable extends Migration
     public function up()
     {
         Schema::create('padrinos', function (Blueprint $table) {
-            $table->bigIncrements('idPadrinos');
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('telefono');
             $table->date('fecha');

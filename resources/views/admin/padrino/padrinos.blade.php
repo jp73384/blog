@@ -1,8 +1,13 @@
 @extends('admin.plantilla.dashboard')
 
 @section('content')
+@if (session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+    </div>
+@endif
     <h2>Registrar padrinos</h2>
-    <form action="#" method="post">
+    <form action="{{route('InsertPadrino')}}" method="post">
         {{ csrf_field() }}  
         <div class="form-group">
             <label for="nombre">Nombre: </label>

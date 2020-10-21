@@ -14,7 +14,7 @@ class CreateContactanosTable extends Migration
     public function up()
     {
         Schema::create('contactanos', function (Blueprint $table) {
-            $table->bigIncrements('idContactanos');
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('correo');
             $table->string('telefono');
