@@ -3,37 +3,37 @@
 
     <h2>Listado de los apadrinados</h2>
 
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="alert alert-warning">
-                            <th>Cod.</th>
-                            <th>Nombre</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Edad</th>
-                            <th>DPI</th>
-                            <th>Direccion</th>
-                            <th>Telefono</th>
-                            <th>Ayuda que se le brinda</th>
-                            <th>Padrino</th>
-                            <th>Opciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                            @foreach ($lista as $apadrino)
+    <div>
+        <table class="table table-bordered table table-hover">
+            <thead>
+                <tr class="alert alert-warning">
+                    <th>Cod.</th>
+                    <th>Nombre</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Edad</th>
+                    <th>DPI</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Ayuda que se le brinda</th>
+                    <th>Padrino</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+              
+                @foreach ($lista as $apadrino)
                                 <tr>
-                                    <td>{{$apadrino->id}}</td>
+                                    <td>{{$apadrino->idApa}}</td>
                                     <td>{{$apadrino->nombre}}</td>
                                     <td>{{$apadrino->nacimiento}}</td>
                                     <td>{{$apadrino->edad}} años</td>
                                     <td>{{$apadrino->dpi}}</td>
                                     <td>{{$apadrino->direccion}}</td>
                                     <td>{{$apadrino->telefono}}</td>
-                                    <td>{{$apadrino->ayuda->descripcion}}</td>
-                                    <td>{{$apadrino->aaa->nombre}}</td>
+                                    <td>{{$apadrino->descripcion}}</td>
+                                    <td>{{$apadrino->nom}}</td>
                                     <td align="center">
-                                        <a href="{{route('editar', $apadrino->id)}}">
+                                        <a href="{{route('editar', $apadrino->idApa)}}">
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <a href="#" data-toggle="modal" data-target="#Relacion{{$apadrino->id}}" data-postid="{{$apadrino->id}}">
@@ -67,11 +67,11 @@
                                     </td>
                                 </tr>     
                             @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
+              
+            </tbody>
+          </table>
+          {{ $lista->links() }}
+    </div>
 
 
 @endsection

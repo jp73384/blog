@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Padrino;
 use Illuminate\Http\Request;
+
 use PDF;
+
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ApadrinadosExport;
+
 
 class ControladorPagina extends Controller
 {
@@ -43,6 +49,10 @@ class ControladorPagina extends Controller
         $pdf = PDF::loadView('admin.pdf.descargar', ['reporte'=>$reporte]);
 
         return $pdf->stream();
+    }
+
+    public function excel(){
+        return Excel::download(new ApadrinadosExport, 'apadrinados.xlsx');
     }
 
 

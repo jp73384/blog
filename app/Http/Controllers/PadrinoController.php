@@ -1,6 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\select;
+
+
 
 use App\Padrino;
 use Illuminate\Http\Request;
@@ -35,9 +40,18 @@ class PadrinoController extends Controller
 
     public function lista()
     {
-        $lista = new Apadrinado;
-        $lista = Apadrinado::get();
-
+        $lista = DB::table('padrinos')
+                            ->join('apadrinados', 'padrinos.id', '=' , 'apadrinados.idPadrino')
+                            ->join('tipo_ayudas', 'apadrinados.idAyuda', '=' , 'tipo_ayudas.id')
+                            ->select("*", "padrinos.id as idPa", 'apadrinados.id as idApa', 'padrinos.nombre as nom')
+                            ->orderBy('apadrinados.id', 'asc')
+                            ->paginate(10);
+     /*    $lista = DB::table('padrinos')
+                    ->join('apadrinados', function ($join) {
+                    $join->on('padrinos.id', '=', 'apadrinados.idPadrino')
+                    ;
+                    })->get();*/
+        
         return view('admin.beneficiados.listarApadrinado', ['lista'=>$lista] );
     }
 
