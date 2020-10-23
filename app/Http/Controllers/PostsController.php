@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Apadrinado;
+use App\Contactano;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -36,6 +37,8 @@ class PostsController extends Controller
     {
         return view('admin.posts.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.

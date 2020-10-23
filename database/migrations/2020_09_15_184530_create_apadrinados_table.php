@@ -16,7 +16,7 @@ class CreateApadrinadosTable extends Migration
         Schema::create('apadrinados', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->string('feEdad');
+            $table->date('nacimiento');
             $table->decimal('edad');
             $table->string('dpi');
             $table->string('direccion');

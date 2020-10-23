@@ -15,7 +15,7 @@ class CreateTipoAyudasTable extends Migration
     {
         Schema::create('tipo_ayudas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descipcion');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }

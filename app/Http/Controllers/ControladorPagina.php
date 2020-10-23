@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Padrino;
 use Illuminate\Http\Request;
+use PDF;
 
 class ControladorPagina extends Controller
 {
@@ -27,9 +29,21 @@ class ControladorPagina extends Controller
         return view('admin.post');
     }
 
-    /*public function padrinos(){
-        return view('admin.padrinos');
-    }*/
+    public function reporte(){
+
+        $reporte = Padrino::paginate(10);
+
+
+        return view('admin.pdf.reporte', compact('reporte'));
+    }
+
+    public function descargar()
+    {
+        $reporte = Padrino::all();
+        $pdf = PDF::loadView('admin.pdf.descargar', ['reporte'=>$reporte]);
+
+        return $pdf->stream();
+    }
 
 
 }

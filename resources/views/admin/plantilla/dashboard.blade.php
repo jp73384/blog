@@ -7,11 +7,12 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Panel de administración</title>
-        <link href="/css/styles.css" rel="stylesheet"/>
+        <link href="{{asset('/css/styles.css')}}" rel="stylesheet"/>
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!--Para darle forma al texarea-->
         <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+        <script src="{{asset('/js/mostrar.js')}}"></script>
     </head>
 
     <body class="sb-nav-fixed">
@@ -20,12 +21,12 @@
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
+                <!--div class="input-group">
                     <input class="form-control" type="text" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
                     </div>
-                </div>
+                </div-->
             </form>
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
@@ -36,11 +37,9 @@
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"> {{ __('Cerrar sesion') }}
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form> 
-
                     </div>
                 </li>
             </ul>
@@ -81,9 +80,13 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Reportes</div>
+                            <a class="nav-link" href="{{route('reporte')}}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
+                                Reportes padrinos
+                            </a>
                             <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
-                                Reportes
+                                Reportes apadrinos
                             </a>
                         </div>
                     </div>

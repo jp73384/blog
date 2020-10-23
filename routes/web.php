@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return redirect('login');
 });
@@ -29,7 +18,10 @@ Route::get('/contacto', 'ControladorPagina@contacto')->name('contactos');
 Route::post('/contacto', 'HomeController@store')->name('enviarComentarios');
 
 Route::get('/admin', 'ControladorPagina@administrador')->name('admin');
+
+//PDF
 Route::get('/reportes', 'ControladorPagina@reporte')->name('reporte');
+Route::get('/descargar', 'ControladorPagina@descargar')->name('descargar');
 
 //Route::get('/padrino', 'ControladorPagina@padrinos')->name('padrinos');
 
@@ -53,6 +45,7 @@ Route::delete('eliminar/{id}', 'PadrinoController@destroy')->name('eliminarPadri
 
 //apadrinados
 Route::get('/apadrinar', 'PadrinoController@apadrinar')->name('apdrinar');
+Route::post('/apadrinar', 'PadrinoController@save')->name('save');
 
 
 //Route::resource('post', 'PostsController')->middleware('auth');

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Padrino;
 use Illuminate\Http\Request;
 use App;
-
+use App\Apadrinado;
+use App\TipoAyuda;
 
 class PadrinoController extends Controller
 {
@@ -58,10 +59,21 @@ class PadrinoController extends Controller
         return redirect('listado')->with('mensaje', 'Registros satisfactorio!');
     }
 
-    
-    public function show($id)
+    public function save(Request $request)
     {
-        //
+        $guardar = new Apadrinado;
+        $guardar->nombre = request('nombre');
+        $guardar->feEdad = "Imagen ";
+        $guardar->edad = request('edad');
+        $guardar->dpi = request('dpi');
+        $guardar->direccion = request('direccion');
+        $guardar->telefono = request('telefono');
+        $guardar->idAyuda = request('tipoAyuda');
+        $guardar->idPadrino = request('apadrinado');
+        
+        $guardar->save();
+
+        return redirect('apadrinar')->with('mensaje', 'Datos registrados!');
     }
 
     public function edit($id)
@@ -94,6 +106,14 @@ class PadrinoController extends Controller
     }
 
     public function apadrinar(){
-        return view('admin.beneficiados.apadrinar');
+
+        $apadrinado = new Padrino;
+        $apadrinado = Padrino::get();
+
+        $ayuda = new TipoAyuda;
+        $ayuda = TipoAyuda::get();
+        
+        return view('admin.beneficiados.apadrinar', ['apadrinado'=>$apadrinado, 'ayuda'=>$ayuda]);
+
     }
 }

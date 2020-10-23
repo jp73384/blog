@@ -43,6 +43,7 @@ class HomeController extends Controller
         $comment->correo = request('email');
         $comment->telefono = request('phone');
         $comment->mensaje = request('message');
+        $comment->estado = '1';
 
         $comment->save();
 
