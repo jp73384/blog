@@ -22,7 +22,8 @@ Route::get('/admin', 'ControladorPagina@administrador')->name('admin');
 //PDF
 Route::get('/reportes', 'ControladorPagina@reporte')->name('reporte');
 Route::get('/descargar', 'ControladorPagina@descargar')->name('descargar');
-Route::get('/excel', 'ControladorPagina@excel')->name('excel');
+
+Route::get('/export_excel', 'ControladorPagina@excel')->name('vista');
 
 //Route::get('/padrino', 'ControladorPagina@padrinos')->name('padrinos');
 

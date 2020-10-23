@@ -84,7 +84,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
                                 Reportes padrinos
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('vista') }}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
                                 Reportes apadrinos
                             </a>

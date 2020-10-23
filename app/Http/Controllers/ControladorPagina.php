@@ -6,10 +6,9 @@ namespace App\Http\Controllers;
 use App\Padrino;
 use Illuminate\Http\Request;
 
+use App\Exports\Exportar;
 use PDF;
-
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ApadrinadosExport;
+use Illuminate\Support\Facades\DB;
 
 
 class ControladorPagina extends Controller
@@ -52,7 +51,7 @@ class ControladorPagina extends Controller
     }
 
     public function excel(){
-        return Excel::download(new ApadrinadosExport, 'apadrinados.xlsx');
+        return (new Exportar)->download('apadrinados.xlsx');
     }
 
 
