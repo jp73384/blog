@@ -76,7 +76,7 @@
                             <div class="collapse" id="apadrinado" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{route('apdrinar')}}"><i class="fa fa-user-plus"></i>&nbsp;Apadrinar</a>
-                                    <a class="nav-link" href="#"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado apadrinados</a>
+                                    <a class="nav-link" href="{{route('lista')}}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado apadrinados</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Reportes</div>

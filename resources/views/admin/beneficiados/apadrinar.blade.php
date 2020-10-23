@@ -14,11 +14,15 @@
         </div>
         <div class="form-group alert alert-warning" id="dpi_f">
             <label for="dpi">DPI: </label>
-            <input type="text" name="dpi" id="dpi" class="form-control" placeholder="DPI..." value="{{old('direccion')}}">
+            <input type="text" name="dpi" id="dpi" class="form-control" placeholder="DPI..." value="{{old('dpi')}}">
         </div>
         <div class="form-group" id="">
             <label for="fecha">Fecha de Nacimiento: </label>
-            <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha nacimiento..." value="{{old('direccion')}}">
+            <input type="date" name="fecha" id="fecha" class="form-control" placeholder="Fecha nacimiento..." value="{{old('fecha')}}">
+        </div>
+        <div class="form-group" id="">
+            <label for="edad">Edad: </label>
+            <input type="text" name="edad" id="edad" class="form-control" placeholder="Fecha nacimiento..." value="{{old('edad')}}">
         </div>
         <div class="form-group">
             <label for="direccion">Direccion: </label>
@@ -34,12 +38,12 @@
             <select name="tipoAyuda" id="tipo" class="form-control">
                 <option value="">Selecciones un opcion</option>
                 @foreach ($ayuda as $item)
-                    <option value="{{$item->id}}">{{$item->descipcion}}</option>
+                    <option value="{{$item->id}}">{{$item->descripcion}}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
-            <label for="apadrinado">Tipo ayuda:</label>
+            <label for="apadrinado">Padrinos:</label>
             <select name="apadrinado" id="apadrinado" class="form-control">
                 <option value="">Selecciones un opcion</option>
                 @foreach ($apadrinado as $padrino)

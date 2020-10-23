@@ -33,9 +33,12 @@ class PadrinoController extends Controller
         return view('admin.padrino.listarPadrino', ['listadoPadrino'=>$listadoPadrino]);
     }
 
-    public function create()
+    public function lista()
     {
-        //
+        $lista = new Apadrinado;
+        $lista = Apadrinado::get();
+
+        return view('admin.beneficiados.listarApadrinado', ['lista'=>$lista] );
     }
 
     public function store(Request $request)
@@ -63,7 +66,7 @@ class PadrinoController extends Controller
     {
         $guardar = new Apadrinado;
         $guardar->nombre = request('nombre');
-        $guardar->feEdad = "Imagen ";
+        $guardar->nacimiento = request('fecha');
         $guardar->edad = request('edad');
         $guardar->dpi = request('dpi');
         $guardar->direccion = request('direccion');

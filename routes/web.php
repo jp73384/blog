@@ -46,6 +46,7 @@ Route::delete('eliminar/{id}', 'PadrinoController@destroy')->name('eliminarPadri
 //apadrinados
 Route::get('/apadrinar', 'PadrinoController@apadrinar')->name('apdrinar');
 Route::post('/apadrinar', 'PadrinoController@save')->name('save');
+Route::get('/apadrinados', 'PadrinoController@lista')->name('lista');
 
 
 //Route::resource('post', 'PostsController')->middleware('auth');
