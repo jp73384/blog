@@ -50,7 +50,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">POST</div>
+                            <div class="sb-sidenav-menu-heading">Promociones</div>
                             <a class="nav-link" href="{{route('postIndex')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-envelope"></i></div>
                                 Ver todos los Post
@@ -79,20 +79,18 @@
                                     <a class="nav-link" href="{{route('lista')}}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado apadrinados</a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Reportes</div>
-                            <a class="nav-link" href="{{route('reporte')}}">
-                                <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
-                                Reportes padrinos
+                            <div class="sb-sidenav-menu-heading">Mensajes</div>
+
+                            <a class="nav-link" href="{{ route('mensaje') }}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-bell"></i></div>
+                                Mensajes
                             </a>
-                            <a class="nav-link" href="{{ route('vista') }}">
-                                <div class="sb-nav-link-icon"><i class="fa fa-bars"></i></div>
-                                Reportes apadrinos
+                            <div class="sb-sidenav-menu-heading">Promociones</div>
+                            <a class="nav-link" href="#">
+                                <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
+                                Promociones
                             </a>
                         </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Conectado como:</div>
-                        Angeles chapines
                     </div>
                 </nav> 
             </div>

@@ -1,10 +1,15 @@
 @extends('admin.plantilla.dashboard')
 @section('content')
 
-<h2>Padrinos que apoyan a la asociación Angeles Chapines</h2>
 @if (session('mensaje'))
     <div class="alert alert-success">{{session('mensaje')}}</div>
 @endif
+<div class="container m4">
+    <h2>Padrinos que apoyan a la organización</h2>
+    <a href="{{route('descargar')}}" class="btn btn-warning"> <i class="fa fa-file-pdf"></i> Descargar Reporte</a>
+    <a href="{{route('excel_padrino')}}" class="btn btn-warning"> <i class="fa fa-file-excel"></i> Descargar Reporte</a>
+    
+</div>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table mr-1"></i>

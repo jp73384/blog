@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 
 use App\Padrino;
+use App\Contactano;
 use Illuminate\Http\Request;
 
+use App\Exports\ExportarPadrino;
 use App\Exports\Exportar;
 use PDF;
 use Illuminate\Support\Facades\DB;
@@ -47,12 +49,29 @@ class ControladorPagina extends Controller
         $reporte = Padrino::all();
         $pdf = PDF::loadView('admin.pdf.descargar', ['reporte'=>$reporte]);
 
-        return $pdf->stream();
+        return $pdf->download();
     }
 
     public function excel(){
-        return (new Exportar)->download('apadrinados.xlsx');
+
+        return (new Exportar)->download('Listado de apadrinados.xlsx');
     }
 
+    public function mensaje()
+    {
+        $mensaje = new Contactano;
+        $mensaje = Contactano::get();
+
+        return view('admin.mensaje.mensaje', ['mensaje' => $mensaje] );
+    }
+
+    public function excel_pdf(){
+
+        return (new Exportar)->download('Listado de apadrinados.pdf');
+    }
+
+    public function excel_padrino(){
+        return (new ExportarPadrino)->download('listado de padrinos.xlsx');
+    }
 
 }

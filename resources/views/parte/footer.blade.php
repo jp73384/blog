@@ -22,7 +22,7 @@
             </li>
 
           </ul>
-          <p class="copyright text-muted">Copyright &copy; Todos los derechos reservados, Desarrollador Web: José Elias Socop Pérez</p>
+          <p class="copyright text-muted">Copyright &copy; Todos los derechos reservados</p>
         </div>
       </div>
     </div>

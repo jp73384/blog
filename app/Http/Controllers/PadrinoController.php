@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\select;
-
+use App\Exports\ExportarPadrino;
+use App\Exports\Exportar;
 
 
 use App\Padrino;
@@ -46,11 +46,6 @@ class PadrinoController extends Controller
                             ->select("*", "padrinos.id as idPa", 'apadrinados.id as idApa', 'padrinos.nombre as nom')
                             ->orderBy('apadrinados.id', 'asc')
                             ->paginate(10);
-     /*    $lista = DB::table('padrinos')
-                    ->join('apadrinados', function ($join) {
-                    $join->on('padrinos.id', '=', 'apadrinados.idPadrino')
-                    ;
-                    })->get();*/
         
         return view('admin.beneficiados.listarApadrinado', ['lista'=>$lista] );
     }
@@ -93,9 +88,40 @@ class PadrinoController extends Controller
         return redirect('apadrinar')->with('mensaje', 'Datos registrados!');
     }
 
-    public function edit($id)
+    public function editar_padrino($id)
     {
-        //
+        $editar = new Apadrinado;
+        $editar = Apadrinado::find($id);
+
+        $apadrinado = new Padrino;
+        $apadrinado = Padrino::get();
+
+        $ayuda = new TipoAyuda;
+        $ayuda = TipoAyuda::get();
+
+        $padrinoId = Padrino::find($editar->idPadrino);
+        $ayudaId = TipoAyuda::find($editar->idAyuda);
+
+        return view('admin.beneficiados.editarApadrino', [ 'editar' => $editar, 'apadrinado'=>$apadrinado, 'ayuda'=>$ayuda, 'padrinoId' => $padrinoId, 'ayudaId' => $ayudaId]);
+    }
+
+    public function actualizar_padrino(Request $request, $id)
+    {
+        $actualizar = new Apadrinado;
+        $actualizar = Apadrinado::find($id);
+
+        $actualizar->nombre = $request->nombre;
+        $actualizar->nacimiento = $request->fecha;
+        $actualizar->edad = $request->edad;
+        $actualizar->dpi = $request->dpi;
+        $actualizar->direccion = $request->direccion;
+        $actualizar->telefono = $request->telefono;
+        $actualizar->idAyuda = $request->tipoAyuda;
+        $actualizar->idPadrino = $request->apadrinado;
+
+        $actualizar->save();
+
+        return back()->with('mensaje', 'Datos actualizados correctamente');
     }
 
     public function update(Request $request, $id)
@@ -120,6 +146,14 @@ class PadrinoController extends Controller
 
         return redirect('listado')->with('eliminar', 'Datos borrados!');
 
+    }
+
+    public function delete($id)
+    {
+        $delete = new Apadrinado;
+        $delete = Apadrinado::find($id);
+        $delete->delete();
+        return redirect('apadrinados')->with('eliminar', 'Datos borrados!');
     }
 
     public function apadrinar(){

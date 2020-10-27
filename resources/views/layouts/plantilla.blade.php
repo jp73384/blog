@@ -8,7 +8,7 @@
   <meta name="author" content="">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Angeles chapines') }}</title>
+  <title>Angeles chapines</title>
 
   <!-- Scripts -->
   <script src="{{ asset('/js/app.js') }}" defer></script>
@@ -46,7 +46,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
+  <script src="/js/clean-blog.min.js"></script>
 
 </body>
 
