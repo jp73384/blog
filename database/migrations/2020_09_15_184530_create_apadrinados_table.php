@@ -22,9 +22,15 @@ class CreateApadrinadosTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->unsignedBigInteger('idAyuda');
-            $table->foreign('idAyuda')->references('id')->on('tipo_ayudas');
+            $table->foreign('idAyuda')->references('id')->on('tipo_ayudas')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->unsignedBigInteger('idPadrino');
-            $table->foreign('idPadrino')->references('id')->on('padrinos');
+            $table->foreign('idPadrino')->references('id')->on('padrinos')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -16,7 +16,17 @@ Route::get('/acerca', 'ControladorPagina@acerca')->name('acercas');
 
 Route::get('/contacto', 'ControladorPagina@contacto')->name('contactos');
 Route::post('/contacto', 'HomeController@store')->name('enviarComentarios');
-Route::get('/promociones', 'HomeController@promociones')->name('promociones');
+
+Route::get('/promociones', 'PromocionesController@registrar')->name('registrar');
+Route::get('/ofertas', 'HomeController@ofertas')->name('ofertas');
+Route::post('/solicitar_pedido', 'HomeController@pedidos')->name('pedidos');
+
+Route::post('/promociones', 'PromocionesController@ingresar')->name('ingresar');
+Route::get('/verpromociones', 'PromocionesController@listadoPromociones')->name('listadoPromociones');
+Route::get('/editarPromociones/{id}', 'PromocionesController@editarPromo')->name('editarPromo');
+Route::put('/actualizar_promo/{id}', 'PromocionesController@actualizarPromo')->name('actualizarPromo');
+Route::delete('/promociones/{id}', 'PromocionesController@eliminar')->name('eliminarPromo');
+
 
 Route::get('/admin', 'ControladorPagina@administrador')->name('admin');
 

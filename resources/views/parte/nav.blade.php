@@ -18,7 +18,7 @@
           <a class="nav-link" href="{{route('contactos')}}">Contacto</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link" href="{{route('promociones')}}">Promociones</a>
+          <a class="nav-link" href="{{route('ofertas')}}">Promociones</a>
           </li>
         </ul>
       </div>

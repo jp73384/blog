@@ -50,12 +50,12 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Promociones</div>
+                            <div class="sb-sidenav-menu-heading">Lista de opciones</div>
                             <a class="nav-link" href="{{route('postIndex')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-envelope"></i></div>
                                 Ver todos los Post
                             </a>
-                            <div class="sb-sidenav-menu-heading">Padrinos</div>
+                            <!--div class="sb-sidenav-menu-heading">Padrinos</div-->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
                                 Padrinos
@@ -67,7 +67,7 @@
                                     <a class="nav-link" href="{{route('listadoPadrino')}}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado</a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Benefiados</div>
+                            <!--div class="sb-sidenav-menu-heading">Benefiados</div-->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#apadrinado" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fa fa-address-card" aria-hidden="true"></i></div>
                                 Beneficiados
@@ -79,16 +79,20 @@
                                     <a class="nav-link" href="{{route('lista')}}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado apadrinados</a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Mensajes</div>
+                            <!--div class="sb-sidenav-menu-heading">Mensajes</div-->
 
                             <a class="nav-link" href="{{ route('mensaje') }}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-bell"></i></div>
                                 Mensajes
                             </a>
-                            <div class="sb-sidenav-menu-heading">Promociones</div>
-                            <a class="nav-link" href="#">
+                            <!--div class="sb-sidenav-menu-heading">Promociones</div-->
+                            <a class="nav-link" href="{{ route('registrar') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                                 Promociones
+                            </a>
+                            <a class="nav-link" href="{{ route('listadoPromociones') }}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-gift"></i></div>
+                                Ver promociones
                             </a>
                         </div>
                     </div>
@@ -106,7 +110,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Desarrollador: JOSE ELIAS SOCOP PEREZ</div>
+                            <div class="text-muted">Copyright &copy; Ingeniería en sistemas promocion 2016 - 2020</div>
                             <div>
                                 <a href="#">Politicas de privacidad</a>
                                 &middot;

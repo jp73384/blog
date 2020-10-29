@@ -39,9 +39,7 @@
                     <td>{{$apadrino->descripcion}}</td>
                     <td>{{$apadrino->nom}}</td>
                     <td align="center">
-                        <a href="{{route('editar_padrino', $apadrino->idApa)}}">
-                            <i class="fa fa-edit"></i>
-                        </a>
+                        <a href="{{route('editar_padrino', $apadrino->idApa)}}"><i class="fa fa-edit"></i></a>
                         
 
                         <a href="#" data-toggle="modal" data-target="#Relacion{{$apadrino->idApa}}" data-postid="{{$apadrino->idApa}}">

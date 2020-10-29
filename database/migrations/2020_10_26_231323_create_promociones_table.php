@@ -19,11 +19,18 @@ class CreatePromocionesTable extends Migration
             $table->string('mensaje');
             $table->string('colors');
             $table->string('estilo');
-            $table->string('descripcion');
+            $table->text('descripcion');
+            $table->string('foto')->nullable();
             $table->unsignedBigInteger('idCategoria');
-            $table->foreign('idCategoria')->references('id')->on('categorias');
+            $table->foreign('idCategoria')->references('id')->on('categorias')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->unsignedBigInteger('idTalla');
-            $table->foreign('idTalla')->references('id')->on('tallas');
+            $table->foreign('idTalla')->references('id')->on('tallas')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

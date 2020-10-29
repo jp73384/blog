@@ -16,6 +16,7 @@ class CreateTallasTable extends Migration
         Schema::create('tallas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('talla');
+            $table->string('check');
             $table->timestamps();
         });
     }
