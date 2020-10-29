@@ -62,6 +62,6 @@ class HomeController extends Controller
 
         $pedido->save();
 
-        
+        return back()->with('mensaje', 'Su pedido fue enviado, nos comunicaremos contigo');
     }
 }

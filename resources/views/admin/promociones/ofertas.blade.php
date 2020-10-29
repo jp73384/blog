@@ -12,6 +12,13 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+
+                @if (session('mensaje'))
+                    <div class="alert alert-success">
+                        {{session('mensaje')}}
+                    </div>                    
+                @endif
+
                 <!-- Portfolio Grid Items-->
                 <div class="row">
                     @foreach ($ofertas as $item)

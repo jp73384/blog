@@ -53,7 +53,7 @@
                             <div class="sb-sidenav-menu-heading">Lista de opciones</div>
                             <a class="nav-link" href="{{route('postIndex')}}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-envelope"></i></div>
-                                Ver todos los Post
+                                Gestionar POST
                             </a>
                             <!--div class="sb-sidenav-menu-heading">Padrinos</div-->
                             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -92,7 +92,7 @@
                             </a>
                             <a class="nav-link" href="{{ route('listadoPromociones') }}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-gift"></i></div>
-                                Ver promociones
+                                Gestionar promociones
                             </a>
                         </div>
                     </div>
