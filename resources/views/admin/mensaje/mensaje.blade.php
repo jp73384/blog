@@ -24,6 +24,7 @@
             @if ($item->estado == '1')
             <th>
               <a href="#" class="btn btn-success">Pediente</a>
+              
             </th>
             @else
             <th>

@@ -194,7 +194,8 @@ class PromocionesController extends Controller
         ->select('*', 'pedidos.id as pedido', 'pedidos.mensaje as personalizado')
         ->orderBy('pedidos.id', 'asc')
         ->get();
-
+        
+        
         return view('admin.promociones.historialVenta',[
             'pedido'=>$pedido
         ]);

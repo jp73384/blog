@@ -1,0 +1,5 @@
+id,descripcion,created_at,updated_at
+1,Medicinas,NULL,NULL
+2,"Aparatos Ortopedicos",NULL,NULL
+3,Alimentos,NULL,NULL
+4,Otro,NULL,NULL
