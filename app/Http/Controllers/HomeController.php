@@ -56,8 +56,10 @@ class HomeController extends Controller
     public function pedidos(Request $request){
         $pedido = new Pedido;
         $pedido->nombre = request('nombre');
+        $pedido->mensaje = request('personalizado');
         $pedido->telefono = request('telefono');
         $pedido->direccion = request('direccion');
+        $pedido->estado = 1;
         $pedido->idPromocion = request('idPromocion');
 
         $pedido->save();

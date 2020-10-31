@@ -57,6 +57,9 @@
                                           <input type="text" name="nombre" class="form-control" placeholder="INGRESE SU NOMBRE">
                                         </div>
                                         <div class="form-group">
+                                          <input type="text" name="personalizado" class="form-control" placeholder="INGRESE SU MENSAJE DE PERSONALIZACION">
+                                        </div>
+                                        <div class="form-group">
                                           <input type="text" name="telefono" class="form-control" placeholder="INGRESE SU TELEFONO">
                                         </div>
                                         <div class="form-group">
@@ -73,7 +76,7 @@
                                 </div>
                               </div>
 
-                        </div>
+                            </div>
                     </div>
                     @endforeach
                     

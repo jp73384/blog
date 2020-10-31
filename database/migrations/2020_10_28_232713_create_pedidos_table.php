@@ -16,8 +16,10 @@ class CreatePedidosTable extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('mensaje');
             $table->string('telefono');
             $table->string('direccion');
+            $table->string('estado');
             $table->unsignedBigInteger('idPromocion');
             $table->foreign('idPromocion')->references('id')->on('promociones')
             ->constrained()

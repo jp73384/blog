@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Promociones;
 use App\Talla;
 use App\Categoria;
+use App\Pedido;
+use App\Contactano;
 
 class PromocionesController extends Controller
 {
@@ -150,9 +152,72 @@ class PromocionesController extends Controller
     public function eliminar($id){
         $delete = new Promociones;
         $delete = Promociones::find($id);
-
+        
         $delete->delete();
 
         return redirect('verpromociones')->with('mensajeEliminar', 'Los datos fuerón borrados correctamente!');
+    }
+
+    public function atender(){
+
+        $pedido = DB::table('tallas')
+        ->join('promociones', 'tallas.id', '=', 'promociones.idTalla')
+        ->join('categorias', 'categorias.id', '=', 'promociones.idCategoria')
+        ->join('pedidos', 'promociones.id', '=', 'pedidos.idPromocion')
+        ->select('*', 'pedidos.id as pedido', 'pedidos.mensaje as personalizado')
+        ->orderBy('pedidos.id', 'asc')
+        ->get();
+
+
+        return view('admin.promociones.pedido', [
+            'pedido'=>$pedido
+        ]);
+    }
+
+    public function confirmar($id){
+        $confirmar = new Pedido;
+        $confirmar = Pedido::find($id);
+
+        $confirmar->estado = 0;
+
+        $confirmar->save();
+
+        return back()->with('mensaje', 'Producto vendido');
+    }
+
+    public function historial(){
+
+        $pedido = DB::table('tallas')
+        ->join('promociones', 'tallas.id', '=', 'promociones.idTalla')
+        ->join('categorias', 'categorias.id', '=', 'promociones.idCategoria')
+        ->join('pedidos', 'promociones.id', '=', 'pedidos.idPromocion')
+        ->select('*', 'pedidos.id as pedido', 'pedidos.mensaje as personalizado')
+        ->orderBy('pedidos.id', 'asc')
+        ->get();
+
+        return view('admin.promociones.historialVenta',[
+            'pedido'=>$pedido
+        ]);
+    }
+
+    public function verMensaje($id){
+
+        $mensajes = Contactano::find($id);
+
+        return view('admin.mensaje.verMensaje',[
+            'mensajes' => $mensajes
+        ]);
+    }
+
+    public function atender_mensaje($id){
+
+        $actualizarM = new Contactano;
+        $actualizarM = Contactano::find($id);
+
+        $actualizarM->estado = 0;
+
+        $actualizarM->save();
+
+        return redirect('post');
     }
 }

@@ -8,8 +8,6 @@
         </div>
     @endif
 
-    <form action="{{route('ingresar')}} " method="post"  enctype="multipart/form-data">
-        @csrf
         <table class="table table-sm table table-bordered">
             <thead>
               <tr align="center">
@@ -55,13 +53,13 @@
                               <div class="modal-body">¿Esta seguro que desea eliminar?</div>
                               <div class="modal-footer">
                                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                  @if(isset($item->idPro))
+                                  
                                       <form action="{{route('eliminarPromo', $item->idPro)}}" method="post">
                                           @method('DELETE')
                                           @csrf
-                                          <button type="submit" class="btn btn-primary">Borrar</button>
+                                          <input type="submit" value="Borrar" class="btn btn-primary">
                                       </form>
-                                  @endif
+                                  
                               </div>
                           </div>
                       </div>
@@ -72,6 +70,6 @@
               @endforeach
             </tbody>
           </table>
-    </form>
+ 
 
 @endsection

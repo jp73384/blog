@@ -8,6 +8,7 @@
         <meta name="author" content="" />
         <title>Panel de administración</title>
         <link href="{{asset('/css/styles.css')}}" rel="stylesheet"/>
+        <link rel="stylesheet" href="{{'/css/sb-admin-2.min.css'}}">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!--Para darle forma al texarea-->
@@ -21,15 +22,59 @@
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <!--div class="input-group">
-                    <input class="form-control" type="text" placeholder="Buscar..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div-->
-            </form>
+                
+             </form>
             <!-- Navbar-->
+
+            @php
+                $contador = 0;
+            @endphp
+            @foreach (session('key') as $item)
+            @php
+                $contador = $contador+1;
+            @endphp
+            @endforeach
+
+            <!-- Nav Item - Alerts -->
+            
             <ul class="navbar-nav ml-auto ml-md-0">
+                <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-bell fa-fw"></i>
+                  <!-- Counter - Alerts -->
+                  
+                  <span class="badge badge-danger badge-counter">
+                      @if ($contador>9)
+                          9+
+                        @else
+                        {{$contador}}
+                      @endif
+                  </span>
+                  
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                  <h6 class="dropdown-header">
+                    Nuevos mensajes
+                  </h6>
+                  @foreach (session('key') as $mensaje)
+                  <a class="dropdown-item d-flex align-items-center" href="{{ route('verMensaje', $mensaje->id)}}">
+                    <div class="mr-3">
+                      <div class="icon-circle bg-primary">
+                        <i class="fas fa-file-alt text-white"></i>
+                      </div>
+                    </div>
+                    <div>
+                        <div class="small text-gray-500">{{$mensaje->created_at}}</div>
+                        <span class="font-weight-bold">{{$mensaje->mensaje}}</span>
+                    </div>
+                  </a>
+                  @endforeach
+                  
+                  <a class="dropdown-item text-center small text-gray-500" href="{{route('mensaje')}}">Ver todo el historial de mensajes</a>
+                </div>
+              </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -79,12 +124,7 @@
                                     <a class="nav-link" href="{{route('lista')}}"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;Listado apadrinados</a>
                                 </nav>
                             </div>
-                            <!--div class="sb-sidenav-menu-heading">Mensajes</div-->
 
-                            <a class="nav-link" href="{{ route('mensaje') }}">
-                                <div class="sb-nav-link-icon"><i class="fa fa-bell"></i></div>
-                                Mensajes
-                            </a>
                             <!--div class="sb-sidenav-menu-heading">Promociones</div-->
                             <a class="nav-link" href="{{ route('registrar') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
@@ -93,6 +133,14 @@
                             <a class="nav-link" href="{{ route('listadoPromociones') }}">
                                 <div class="sb-nav-link-icon"><i class="fa fa-gift"></i></div>
                                 Gestionar promociones
+                            </a>
+                            <a class="nav-link" href="{{route('atender')}}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-shopping-cart"></i></div>
+                                Pedidos
+                            </a>
+                            <a class="nav-link" href="{{route('historial')}}">
+                                <div class="sb-nav-link-icon"><i class="fa fa-history"></i></div>
+                                Historial de ventas
                             </a>
                         </div>
                     </div>

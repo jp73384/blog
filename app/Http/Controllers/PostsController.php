@@ -6,6 +6,7 @@ use App\Post;
 use App\Apadrinado;
 use App\Contactano;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -24,7 +25,12 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::get();
+        $mensaje = DB::table('contactanos')
+                    ->where('contactanos.estado', '=', '1')
+                    ->get();
 
+        session(['key' => $mensaje]);
+        
         return view('admin.posts.index', ['posts'=>$posts]);
     }
 
