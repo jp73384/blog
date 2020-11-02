@@ -55,7 +55,7 @@
                                   <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                                   
                                       <form action="{{route('eliminarPromo', $item->idPro)}}" method="post">
-                                          @method('DELETE')
+                                          @method('PUT')
                                           @csrf
                                           <input type="submit" value="Borrar" class="btn btn-primary">
                                       </form>

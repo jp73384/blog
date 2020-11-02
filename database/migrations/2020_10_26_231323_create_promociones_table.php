@@ -21,6 +21,7 @@ class CreatePromocionesTable extends Migration
             $table->string('estilo');
             $table->text('descripcion');
             $table->string('foto')->nullable();
+            $table->string('estado');
             $table->unsignedBigInteger('idCategoria');
             $table->foreign('idCategoria')->references('id')->on('categorias')
             ->constrained()

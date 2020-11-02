@@ -18,6 +18,7 @@ class CreatePadrinosTable extends Migration
             $table->string('nombre');
             $table->string('telefono');
             $table->date('fecha');
+            $table->string('estado');
             $table->timestamps();
         });
     }

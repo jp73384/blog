@@ -40,10 +40,10 @@
                 <tbody>
                         @foreach ($listadoPadrino as $padrino)
                             <tr>
-                                <td>{{$padrino['id']}}</td>
-                                <td>{{$padrino['nombre']}}</td>
-                                <td>{{$padrino['telefono']}}</td>
-                                <td>{{$padrino['fecha']}}</td>
+                                <td>{{$padrino->id}}</td>
+                                <td>{{$padrino->nombre}}</td>
+                                <td>{{$padrino->telefono}}</td>
+                                <td>{{$padrino->fecha}}</td>
                                 <td align="center">
                                     <a href="{{route('editar', $padrino->id)}}">
                                         <i class="fa fa-edit"></i>
@@ -66,7 +66,7 @@
                                                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                                                     @if(isset($padrino->id))
                                                         <form action="{{route('eliminarPadrino', $padrino->id)}}" method="post">
-                                                            @method('DELETE')
+                                                            @method('PUT')
                                                             @csrf
                                                             <button type="submit" class="btn btn-primary">Borrar</button>
                                                         </form>

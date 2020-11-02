@@ -46,6 +46,7 @@ class HomeController extends Controller
                     ->join('promociones', 'tallas.id', '=', 'promociones.idTalla')
                     ->join('categorias', 'categorias.id', '=', 'promociones.idCategoria')
                     ->select('*','promociones.id as idPromo')
+                    ->where('promociones.estado', '=', '1')
                     ->get();
 
         return view('admin.promociones.ofertas', [

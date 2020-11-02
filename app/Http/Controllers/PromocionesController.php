@@ -55,6 +55,7 @@ class PromocionesController extends Controller
         $guardar->estilo = request('estilo');
         $guardar->descripcion = request('descripcion');
         $guardar->foto = $NewFileName;
+        $guardar->estado = 1;
         $guardar->idCategoria = request('categoria');
         $guardar->idTalla = request('talla');
 
@@ -70,6 +71,7 @@ class PromocionesController extends Controller
         ->join('categorias', 'categorias.id', '=', 'promociones.idCategoria')
         ->select('*', 'promociones.id as idPro')
         ->orderBy('promociones.id', 'asc')
+        ->where('promociones.estado', '=', '1')
         ->get();
 
         return view('admin.promociones.listadoPromo',[
@@ -153,7 +155,9 @@ class PromocionesController extends Controller
         $delete = new Promociones;
         $delete = Promociones::find($id);
         
-        $delete->delete();
+        $delete->estado=0;
+
+        $delete->save();
 
         return redirect('verpromociones')->with('mensajeEliminar', 'Los datos fuerón borrados correctamente!');
     }

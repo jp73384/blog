@@ -34,7 +34,9 @@ class PadrinoController extends Controller
     }
 
     public function verPadrino(){
-        $listadoPadrino = Padrino::get();
+        $listadoPadrino = DB::table('padrinos')
+        ->where('padrinos.estado', '=', '1')
+        ->get();
         return view('admin.padrino.listarPadrino', ['listadoPadrino'=>$listadoPadrino]);
     }
 
@@ -64,8 +66,8 @@ class PadrinoController extends Controller
         $post->nombre = request('nombre');
         $post->telefono = request('telefono');
         $post->fecha = request('fecha');
-        
-        $post->save(); //10.08-Curso de Laravel 6.0 - Crear el CRUD para Post - Upload Image para Post
+        $post->estado = 1;
+        $post->save(); 
 
     
         return redirect('listado')->with('mensaje', 'Registros satisfactorio!');
@@ -94,7 +96,9 @@ class PadrinoController extends Controller
         $editar = Apadrinado::find($id);
 
         $apadrinado = new Padrino;
-        $apadrinado = Padrino::get();
+        $apadrinado = DB::table('padrinos')
+        ->where('padrinos.estado','=', '1')
+        ->get();
 
         $ayuda = new TipoAyuda;
         $ayuda = TipoAyuda::get();
@@ -142,7 +146,8 @@ class PadrinoController extends Controller
     {
         $delete = new Padrino;
         $delete = Padrino::find($id);
-        $delete->delete();
+        $delete->estado = 0;
+        $delete->save();
 
         return redirect('listado')->with('eliminar', 'Datos borrados!');
 
@@ -158,8 +163,9 @@ class PadrinoController extends Controller
 
     public function apadrinar(){
 
-        $apadrinado = new Padrino;
-        $apadrinado = Padrino::get();
+        $apadrinado = DB::table('padrinos')
+        ->where('padrinos.estado', '=', '1')
+        ->get();
 
         $ayuda = new TipoAyuda;
         $ayuda = TipoAyuda::get();

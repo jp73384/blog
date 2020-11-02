@@ -26,7 +26,7 @@ Route::post('/promociones', 'PromocionesController@ingresar')->name('ingresar');
 Route::get('/verpromociones', 'PromocionesController@listadoPromociones')->name('listadoPromociones');
 Route::get('/editarPromociones/{id}', 'PromocionesController@editarPromo')->name('editarPromo');
 Route::put('/actualizar_promo/{id}', 'PromocionesController@actualizarPromo')->name('actualizarPromo');
-Route::delete('/promo_eliminar/{id}', 'PromocionesController@eliminar')->name('eliminarPromo');
+Route::put('/promo_eliminar/{id}', 'PromocionesController@eliminar')->name('eliminarPromo');
 Route::put('/confirmar_venta/{id}', 'PromocionesController@confirmar')->name('vender');
 Route::get('/historial_venta', 'PromocionesController@historial')->name('historial');
 
@@ -66,7 +66,7 @@ Route::post('/padrino', 'PadrinoController@store')->name('InsertPadrino');
 
 Route::get('/editar/{id}', 'PadrinoController@editar')->name('editar');
 Route::put('/editar/{id}', 'PadrinoController@update')->name('editarPadrinos');
-Route::delete('/eliminar/{id}', 'PadrinoController@destroy')->name('eliminarPadrino');
+Route::put('/eliminar/{id}', 'PadrinoController@destroy')->name('eliminarPadrino');
 
 //apadrinados
 Route::get('/apadrinar', 'PadrinoController@apadrinar')->name('apdrinar');

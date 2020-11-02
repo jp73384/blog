@@ -15,6 +15,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Fecha inicio</th>
+                <th scope="col">Estado</th>
               </tr>
             </thead>
             <tbody>
@@ -25,6 +26,13 @@
                     <td> {{ $item->nombre }} </td>
                     <td>{{ $item->telefono }}</td>
                     <td>{{ $item->fecha }}</td>
+                    <td>
+                      @if ($item->estado == '1')
+                        <input type="button" class="btn btn-success" value="Activo">
+                        @else
+                        <input type="button" class="btn btn-danger" value="Inactivo">
+                      @endif
+                    </td>
                   </tr>
                   @endforeach
             </tbody>
